@@ -56,6 +56,17 @@ namespace StringCalculatorTest
         {
             Assert.AreEqual(70, StringCalculatorTdd.Add("7\n,8,9,10,11,12,13"));
         }
+        [Test]
+        public void Add_StringwithUsersChoiceOfParametersAndNewLineDelimitedByComma_ReturnSumofUsersChoiceOfParametersIgnoringNewLine()
+        {
+            Assert.AreEqual(70, StringCalculatorTdd.Add("7,\n,8,9,10,11,12,13"));
+        }
+        [Test]
+        public void Add_StringwithUsersChoiceOfParametersAndNewLineDelimitedByCommaAsLastNumber_ReturnSumofUsersChoiceOfParametersIgnoringNewLine()
+        {
+            var ex = Assert.Throws<ArgumentException>(() => StringCalculatorTdd.Add("7,8,9,10,11,12,13,\n"));
+            Assert.That(ex.Message, Is.EqualTo("Invalid argument, please pass numbers only"));
+        }
 
     }
 }
