@@ -14,6 +14,10 @@ namespace StringCalculatorTest
         {
             Assert.AreEqual(5, StringCalculatorTdd.Add("5"));
         }
-    
+        [Test]
+        public void Add_StringwithOneParameter_ReturnSameParameter()
+        {
+            Assert.AreEqual(6, StringCalculatorTdd.Add("6"));
+        }
     }
 }

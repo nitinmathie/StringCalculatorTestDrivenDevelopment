@@ -11,7 +11,7 @@
         }
         else
         {
-            return 5;
+            return int.Parse(numbers);
         }
     }
     }
