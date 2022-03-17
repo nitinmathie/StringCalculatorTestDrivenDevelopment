@@ -4,15 +4,16 @@ namespace StringCalculatorTest
 {
     public class Tests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         [Test]
-        public void Test1()
+        public void Add_EmptyStringParameters_ReturnZero()
         {
-            Assert.Pass();
+            Assert.AreEqual(0, StringCalculatorTdd.Add(""));
         }
+        [Test]
+        public void Add_StringwithOneParameter_ReturnParameter()
+        {
+            Assert.AreEqual(5, StringCalculatorTdd.Add("5"));
+        }
+    
     }
 }
