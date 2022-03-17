@@ -72,6 +72,11 @@ namespace StringCalculatorTest
         {
             Assert.AreEqual(3, StringCalculatorTdd.Add("//;\n1;2"));
         }
-    
+        [Test]
+        public void Add_StringwithUsersChoiceOfParametersDelimitedByColon_ReturnSumofUsersChoiceOfParameters()
+        {
+            Assert.AreEqual(3, StringCalculatorTdd.Add("//:\n1:2"));
+        }
+
     }
 }

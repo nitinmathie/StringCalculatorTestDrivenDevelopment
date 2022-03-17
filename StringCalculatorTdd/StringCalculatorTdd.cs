@@ -14,7 +14,8 @@ public class StringCalculatorTdd
         {
             if (numbers.Substring(0, 2) == "//")
             {
-                var delimiter = ";";
+                var delimiter = ":";
+
                 var numbersList = numbers.Split(delimiter);
                 var countOfNumbers = numbersList.Count();
                 if (numbersList[countOfNumbers - 1] == "\n")
