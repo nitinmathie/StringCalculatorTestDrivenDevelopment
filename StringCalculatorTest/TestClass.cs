@@ -36,5 +36,10 @@ namespace StringCalculatorTest
         {
             Assert.AreEqual(11, StringCalculatorTdd.Add("6,5"));
         }
+        [Test]
+        public void Add_StringwithThreeParameters_ReturnSumoftheThreeParameters()
+        {
+            Assert.AreEqual(24, StringCalculatorTdd.Add("7,8,9"));
+        }
     }
 }

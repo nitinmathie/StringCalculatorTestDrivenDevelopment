@@ -1,37 +1,54 @@
 ﻿using System;
+using System.Linq;
 
-
-    public class StringCalculatorTdd
+public class StringCalculatorTdd
     {
     public static int Add(string numbers)
     {
+        var sum = 0;
         if (numbers == string.Empty)
         {
-            return 0;
+            sum = 0;
         }
         else if(numbers.Contains(','))
         {
+
             var numbersList = numbers.Split(',');
-            try
+            if (numbersList.Count() == 2)
             {
-                return int.Parse(numbersList[0]) + int.Parse(numbersList[1]);
+                try
+                {
+                    sum= int.Parse(numbersList[0]) + int.Parse(numbersList[1]);
+                }
+                catch
+                {
+                    throw new ArgumentException("Invalid argument, please pass numbers only");
+                }
             }
-            catch
+            if (numbersList.Count() == 3)
             {
-                throw new ArgumentException("Invalid argument, please pass numbers only");
+                try
+                {
+                    sum= int.Parse(numbersList[0]) + int.Parse(numbersList[1])+ int.Parse(numbersList[2]);
+                }
+                catch
+                {
+                    throw new ArgumentException("Invalid argument, please pass numbers only");
+                }
             }
         }
         else
         {
             //check if the entered input is a number
             try { 
-            return int.Parse(numbers);
+            sum= int.Parse(numbers);
                 }
             catch
             {
                 throw new ArgumentException("Invalid argument, please pass numbers only");
             }
         }
+        return sum;
     }
     }
 
