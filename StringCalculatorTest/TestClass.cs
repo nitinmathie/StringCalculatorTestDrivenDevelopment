@@ -41,5 +41,21 @@ namespace StringCalculatorTest
         {
             Assert.AreEqual(24, StringCalculatorTdd.Add("7,8,9"));
         }
+        [Test]
+        public void Add_StringwithFourParameters_ReturnSumoftheFourParameters()
+        {
+            Assert.AreEqual(34, StringCalculatorTdd.Add("7,8,9,10"));
+        }
+        [Test]
+        public void Add_StringwithAnyAmountOfParameters_ReturnSumoftheSpecifiedAmountOfParameters()
+        {
+            Assert.AreEqual(55, StringCalculatorTdd.Add("1,2,3,4,5,6,7,8,9,10"));
+        }
+        [Test]
+        public void Add_StringwithUsersChoiceOfParametersAndNewLine_ReturnSumofUsersChoiceOfParameters()
+        {
+            Assert.AreEqual(70, StringCalculatorTdd.Add("7\n,8,9,10,11,12,13"));
+        }
+
     }
 }
