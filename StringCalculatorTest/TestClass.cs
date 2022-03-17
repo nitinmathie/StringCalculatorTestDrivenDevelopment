@@ -82,12 +82,7 @@ namespace StringCalculatorTest
         {
             Assert.AreEqual(15, StringCalculatorTdd.Add("//:\n1:2:3:4:5"));
         }
-        [Test]
-        public void Add_StringwithUnlimitedParametersUnisgnedDelimitedBydot_ReturnNegativeNumbersNotAllowed()
-        {
-            var ex = Assert.Throws<ArgumentException>(() => StringCalculatorTdd.Add("//.\n-1.-22.3.4.5.6.7.8.9.10"));
-            Assert.That(ex.Message, Is.EqualTo("Invalid argument, Negative numbers are not allowed."));
-        }
+   
         [Test]
         public void Add_StringwithUnlimitedParametersUnisgnedDelimitedBydot_ReturnAllNotAllowedNumbers()
         {
