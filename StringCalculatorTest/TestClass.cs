@@ -21,11 +21,20 @@ namespace StringCalculatorTest
             Assert.AreEqual(6, StringCalculatorTdd.Add("6"));
         }
         [Test]
-        public void Add_StringwithAlphabetasParameter_ReturnException()
+        public void Add_StringwithAlphabetAsParameter_ReturnException()
         {
             var ex = Assert.Throws<ArgumentException>(() => StringCalculatorTdd.Add("a"));
             Assert.That(ex.Message, Is.EqualTo("Invalid argument, please pass numbers only"));
         }
- 
+        [Test]
+        public void Add_StringwithTwoParameters_ReturnSumOfParameters()
+        {
+            Assert.AreEqual(11, StringCalculatorTdd.Add("6,5"));
+        }
+        [Test]
+        public void Add_StringwithTwoParameters_ReturnSumOfPassedParameters()
+        {
+            Assert.AreEqual(11, StringCalculatorTdd.Add("6,5"));
+        }
     }
 }
