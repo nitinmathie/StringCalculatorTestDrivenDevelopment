@@ -19,23 +19,41 @@ public class StringCalculatorTdd
                 var countOfNumbers = numbersList.Count();
                 if (numbersList[countOfNumbers - 1] == "\n")
                 {
+
                     throw new ArgumentException("Invalid argument, please pass numbers only");
                 }
                 for (int i = 1; i < countOfNumbers; i++)
                 {
-                    if (numbersList[i] == "\n")
+                    try
+                    {
+                        if (numbersList[i] == "\n")
                     {
                         numbersList[i] = "0";
                     }
-                    try
-                    {
+              
+                    else if (int.Parse(numbersList[i]) < 0)
+                        {
+                            throw new ArgumentOutOfRangeException("Invalid argument, Negative numbers are not allowed.");
+                            
+                        }
+                 
                         sum = sum + int.Parse(numbersList[i]);
                     }
-                    catch
+                    catch(Exception ex)
                     {
-                        throw new ArgumentException("Invalid argument, please pass numbers only");
+                        if (ex is ArgumentOutOfRangeException)
+                        {
+                            throw new ArgumentException("Invalid argument, Negative numbers are not allowed.");
+                        }
+                        else
+                        {
+
+                            throw new ArgumentException("Invalid argument, please pass numbers only");
+                        }
                     }
+                    
                 }
+                
 
             }
             else if (numbers.Contains(','))
