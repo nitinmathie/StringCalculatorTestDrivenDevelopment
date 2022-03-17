@@ -67,6 +67,11 @@ namespace StringCalculatorTest
             var ex = Assert.Throws<ArgumentException>(() => StringCalculatorTdd.Add("7,8,9,10,11,12,13,\n"));
             Assert.That(ex.Message, Is.EqualTo("Invalid argument, please pass numbers only"));
         }
-
+        [Test]
+        public void Add_StringwithUsersChoiceOfParametersDelimitedBySemiColon_ReturnSumofUsersChoiceOfParameters()
+        {
+            Assert.AreEqual(3, StringCalculatorTdd.Add("//;\n1;2"));
+        }
+    
     }
 }
