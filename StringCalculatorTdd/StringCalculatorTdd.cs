@@ -74,20 +74,46 @@ public class StringCalculatorTdd
                 {
                     throw new ArgumentException("Invalid argument, please pass numbers only");
                 }
-                for (int i = 0; i < countOfNumbers; i++)
+
+                for (int i = 1; i < countOfNumbers; i++)
                 {
-                    if (numbersList[i] == "\n")
-                    {
-                        numbersList[i] = "0";
-                    }
                     try
                     {
+                        if (numbersList[i] == "\n")
+                        {
+                            numbersList[i] = "0";
+                        }
+
+                        else if (int.Parse(numbersList[i]) < 0)
+                        {
+                            string negativeNumbers = "";
+                            for (int j = i; j < countOfNumbers; j++)
+                            {
+                                if (int.Parse(numbersList[j]) < 0)
+                                {
+                                    negativeNumbers = numbersList[j].ToString() + "," + negativeNumbers;
+                                }
+                            }
+                            throw new ArgumentOutOfRangeException("Invalid argument," + negativeNumbers + "are not allowed.");
+
+                        }
+
                         sum = sum + int.Parse(numbersList[i]);
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        throw new ArgumentException("Invalid argument, please pass numbers only");
+                        if (ex is ArgumentOutOfRangeException)
+                        {
+                            var message = ex.Message.Split("'");
+                            throw new ArgumentException(message[1]);
+                        }
+                        else
+                        {
+
+                            throw new ArgumentException("Invalid argument, please pass numbers only");
+                        }
                     }
+
                 }
 
             }

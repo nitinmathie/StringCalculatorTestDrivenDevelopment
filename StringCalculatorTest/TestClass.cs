@@ -94,6 +94,12 @@ namespace StringCalculatorTest
             var ex = Assert.Throws<ArgumentException>(() => StringCalculatorTdd.Add("//.\n1.-22.-3"));
             Assert.That(ex.Message, Is.EqualTo("Invalid argument,-3,-22,are not allowed."));
         }
+        [Test]
+        public void Add_StringwithUnlimitedParametersUnisgnedDelimitedByComma_ReturnAllNotAllowedNumbers()
+        {
+            var ex = Assert.Throws<ArgumentException>(() => StringCalculatorTdd.Add("1,2,-3,-4"));
+            Assert.That(ex.Message, Is.EqualTo("Invalid argument,-4,-3,are not allowed."));
+        }
 
     }
 }
