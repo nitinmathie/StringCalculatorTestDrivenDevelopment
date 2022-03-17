@@ -11,7 +11,14 @@
         }
         else
         {
+            //check if the entered input is a number
+            try { 
             return int.Parse(numbers);
+                }
+            catch
+            {
+                throw new ArgumentException("Invalid argument, please pass numbers only");
+            }
         }
     }
     }

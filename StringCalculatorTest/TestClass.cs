@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 
 namespace StringCalculatorTest
@@ -19,5 +20,12 @@ namespace StringCalculatorTest
         {
             Assert.AreEqual(6, StringCalculatorTdd.Add("6"));
         }
+        [Test]
+        public void Add_StringwithAlphabetasParameter_ReturnException()
+        {
+            var ex = Assert.Throws<ArgumentException>(() => StringCalculatorTdd.Add("a"));
+            Assert.That(ex.Message, Is.EqualTo("Invalid argument, please pass numbers only"));
+        }
+ 
     }
 }
