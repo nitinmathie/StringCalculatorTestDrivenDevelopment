@@ -33,7 +33,15 @@ public class StringCalculatorTdd
               
                     else if (int.Parse(numbersList[i]) < 0)
                         {
-                            throw new ArgumentOutOfRangeException("Invalid argument, Negative numbers are not allowed.");
+                            string negativeNumbers ="";
+                            for(int j=i;j< countOfNumbers;j++)
+                            {
+                                if (int.Parse(numbersList[j]) < 0)
+                                {
+                                    negativeNumbers = numbersList[j].ToString() + "," + negativeNumbers;
+                                }
+                            }
+                            throw new ArgumentOutOfRangeException("Invalid argument,"+negativeNumbers +"are not allowed.");
                             
                         }
                  
@@ -43,7 +51,8 @@ public class StringCalculatorTdd
                     {
                         if (ex is ArgumentOutOfRangeException)
                         {
-                            throw new ArgumentException("Invalid argument, Negative numbers are not allowed.");
+                            var message = ex.Message.Split("'");
+                            throw new ArgumentException(message[1]);
                         }
                         else
                         {
