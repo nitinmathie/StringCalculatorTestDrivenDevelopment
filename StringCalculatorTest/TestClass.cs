@@ -14,10 +14,6 @@ namespace StringCalculatorTest
         public void Add_StringwithOneParameter_ReturnParameter()
         {
             Assert.AreEqual(5, StringCalculatorTdd.Add("5"));
-        }
-        [Test]
-        public void Add_StringwithOneParameter_ReturnSameParameter()
-        {
             Assert.AreEqual(6, StringCalculatorTdd.Add("6"));
         }
         [Test]
@@ -29,12 +25,12 @@ namespace StringCalculatorTest
         [Test]
         public void Add_StringwithTwoParameters_ReturnSumOfParameters()
         {
-            Assert.AreEqual(11, StringCalculatorTdd.Add("6,5"));
+            Assert.AreEqual(8, StringCalculatorTdd.Add("3,5"));
         }
         [Test]
         public void Add_StringwithTwoParameters_ReturnSumOfPassedParameters()
         {
-            Assert.AreEqual(11, StringCalculatorTdd.Add("6,5"));
+            Assert.AreEqual(12, StringCalculatorTdd.Add("6,6"));
         }
         [Test]
         public void Add_StringwithThreeParameters_ReturnSumoftheThreeParameters()
@@ -55,6 +51,11 @@ namespace StringCalculatorTest
         public void Add_StringwithUsersChoiceOfParametersAndNewLine_ReturnSumofUsersChoiceOfParameters()
         {
             Assert.AreEqual(70, StringCalculatorTdd.Add("7\n,8,9,10,11,12,13"));
+        }
+        [Test]
+        public void Add_StringWithUserChoiceofParametersContainingUnderscore_DiscardsUnderscoreAndReturnsSumofParameters()
+        {
+            Assert.AreEqual(808, StringCalculatorTdd.Add("7_07,8,9_3"));
         }
         [Test]
         public void Add_StringwithUsersChoiceOfParametersAndNewLineDelimitedByComma_ReturnSumofUsersChoiceOfParametersIgnoringNewLine()
