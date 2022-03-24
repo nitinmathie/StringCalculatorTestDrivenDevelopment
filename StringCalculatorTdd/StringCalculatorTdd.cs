@@ -7,14 +7,15 @@ public class StringCalculatorTdd
     public static int Add(string numbers)
     {
         //to discard all the "_"s from the input string
-       numbers= numbers.Replace("_", "");
+      
        var sum = 0;
-        if (numbers == string.Empty)
+        if (string.IsNullOrEmpty(numbers))
         {
             return  0;
         }
         else if (numbers.Length > 2)
         {
+            numbers = numbers.Replace("_", ""); 
             //input in the format of delimiter
             if (numbers.Substring(0, 2) == "//")
             {
